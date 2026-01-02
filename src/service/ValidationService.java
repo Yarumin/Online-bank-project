@@ -1,4 +1,4 @@
-package service;
+//package service;
 
 import java.util.Scanner;
 
@@ -10,10 +10,10 @@ public class ValidationService {
         while (true){
             System.out.println(prompt); // متنی که به کاربر نشون میده تا درخواست ورودی مورد نظر رو انجام بده
             String text = input.nextLine();
-            if ((text.trim().isEmpty())){ // معادل با isBlank() //
-                System.out.println("Vorodi nabayad khali bashad !");
+            if (!(text.trim().isEmpty())){ // معادل با isBlank() //
+                return text.trim();
             }
-            return text.trim();
+            System.out.println("Vorodi nabayad khali bashad !");
         }
     }
 
@@ -29,9 +29,9 @@ public class ValidationService {
 
     public static String isNumeric(String prompt){
         while (true) {
-            String text = getValidString(prompt);
-            if (text.matches("[0-9]+")){ // معادل با //d //
-                return text;
+            String value = getValidString(prompt);
+            if (value.matches("[0-9]+")){ // معادل با //d //
+                return value;
             }
             System.out.println("Vorodi Bayad yek adade englisi bashad !");
         }
@@ -87,10 +87,9 @@ public class ValidationService {
         }
     }
 
-    public static String formatName(String name){
-        name = name.trim();
-        if (name == null || name.isEmpty()) return name;
-        name = name.toLowerCase();
+    public static String normalizeName(String name){
+        if (name == null || name.trim().isEmpty()) return name;
+        name = name.trim().toLowerCase();
         return name.substring(0,1).toUpperCase() + name.substring(1);
     }
 }
