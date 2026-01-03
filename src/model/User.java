@@ -1,4 +1,6 @@
-public class User {
+//package model;
+
+public abstract class User {
     private String firstName;
     private String lastName;
     private String nationalId;

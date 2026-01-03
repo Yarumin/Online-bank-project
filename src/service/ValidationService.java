@@ -17,6 +17,50 @@ public class ValidationService {
         }
     }
 
+    /* public static double getValidDouble(String prompt){
+        while (true) {
+            System.out.println(prompt);
+            try {
+                double value = input.nextDouble();
+                input.nextLine(); // خالی کردن بافر
+                return value;
+            } catch (Exception e) { // InputMismatchException
+                System.out.println("Vorodi bayad yek adade motabar bashad !");
+                input.nextLine(); // دور ریختن ورودی خراب
+            }
+        }
+    } */
+
+
+    public static double getValidDouble(String prompt){
+        while (true) {
+            String number = getValidString(prompt);
+            try {
+                return Double.parseDouble(number);
+            } catch (NumberFormatException e) {
+                System.out.println("Vorodi bayad yek adade motabar bashad !");
+            }
+        }
+    }
+
+    public static double getWithdrawAmount(String prompt, double balance) {
+        while (true) {
+            double amount = getValidDouble(prompt);
+
+            if (amount < 0){
+                System.out.println("Mablagh bayad bozorgtar az sefr bashad !");
+                continue;
+            }
+
+            if (amount > balance){
+                System.out.println("Mojodi kafi nist ! Mojodi shoma: " + balance);
+                continue;
+            }
+
+        return amount;
+        }
+    }
+
     public static String isEnglishLetters(String prompt){
         while (true) {
             String text = getValidString(prompt);

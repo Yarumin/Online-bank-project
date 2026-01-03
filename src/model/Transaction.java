@@ -1,30 +1,41 @@
-import java.time.LocalDateTime;
-import java.util.UUID;
+//package model;
+
+/* import java.time.LocalDateTime;
+import java.util.UUID; */
 
 public class Transaction {
-    private String id;
+    private String transactionId;
+    private String sourceAccount;
+    private String destinationAccount;
+    private String date;
     private double amount;
-    private LocalDateTime timestamp;
-    private String fromAccount;
-    private String toAccount;
 
-    public Transaction( double amount, String fromAccount, String toAccount) {
-        this.id = UUID.randomUUID().toString();
+    public Transaction(String transactionId, String sourceAccount, String destinationAccount, String date, double amount) {
+        this.transactionId = transactionId;
+        this.sourceAccount = sourceAccount;
+        this.destinationAccount = destinationAccount;
+        this.date = date;
         this.amount = amount;
-        this.timestamp = LocalDateTime.now();
-        this.fromAccount = fromAccount;
-        this.toAccount = toAccount;
     }
 
-    public String getId() { return id; }
-    public double getAmount() { return amount; }
-    public LocalDateTime getTimestamp() { return timestamp; }
-    public String getFromAccount() { return fromAccount; }
-    public String getToAccount() { return toAccount; }
+    public String getTransactionId() { return transactionId; }
+    public void setTransactionId(String transactionId) { this.transactionId = transactionId; }
 
-    @Override
+    public String getSourceAccount() { return sourceAccount; }
+    public void setSourceAccount(String sourceAccount) { this.sourceAccount = sourceAccount; }
+
+    public String getDestinationAccount() { return destinationAccount; }
+    public void setDestinationAccount(String destinationAccount) { this.destinationAccount = destinationAccount; }
+
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
+
+    public double getAmount() { return amount; }
+    public void setAmount(double amount) { this.amount = amount; }
+
+    /* @Override
     public String toString() {
         return "[" + timestamp + "] " + " amount=" + amount + " from=" + fromAccount + " to=" + toAccount;
-    }
+    } */
 }
 
