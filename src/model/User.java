@@ -49,7 +49,10 @@ public abstract class User {
 
     @Override
     public String toString() {
-        return "User{" + "name='" + firstName + " " + lastName + '\'' +  ", nationalId='" + nationalId + '\'' +  ", phoneNumber='" + phoneNumber + '\'' +  ", email='" + email + '\'' +'}';
+        return "Name: " + firstName + " " + lastName +
+               " | National ID: " + nationalId +
+               " | Phone: " + phoneNumber +
+               " | Email: " + email;
     }
 }
 

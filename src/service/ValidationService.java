@@ -47,7 +47,7 @@ public class ValidationService {
         while (true) {
             double amount = getValidDouble(prompt);
 
-            if (amount < 0){
+            if (amount <= 0){
                 System.out.println("Mablagh bayad bozorgtar az sefr bashad !");
                 continue;
             }

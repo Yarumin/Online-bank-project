@@ -1,14 +1,10 @@
 //package model;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Account {
 
     private String accountNumber;
     private String creationDate;
     private double balance;
-    private List<Transaction> transactions = new ArrayList<>();
 
     public Account(String accountNumber, String creationDate, double balance) {
         this.accountNumber = accountNumber;
@@ -25,10 +21,8 @@ public class Account {
     public double getBalance() { return balance; }
     public void setBalance(double balance) { this.balance = balance; }
 
-    public List<Transaction> getTransactions() { return transactions; }
-
-    /* @Override
+    @Override
     public String toString() {
-        return "Account{" + "accountNumber='" + accountNumber + '\'' +", balance=" + balance +", owner=" + ownerNationalId +'}';
-    } */
+        return "Account Number: " + accountNumber + " | Balance: " + balance + " | Created: " + creationDate;
+    }
 }
