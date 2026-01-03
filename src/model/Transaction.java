@@ -4,22 +4,20 @@
 import java.util.UUID; */
 
 public class Transaction {
-    private String transactionId;
+
     private String sourceAccount;
     private String destinationAccount;
-    private String date;
     private double amount;
+    private String date;
+    private String reportId;
 
-    public Transaction(String transactionId, String sourceAccount, String destinationAccount, String date, double amount) {
-        this.transactionId = transactionId;
+    public Transaction(String sourceAccount, String destinationAccount, double amount, String date, String reportId) {
         this.sourceAccount = sourceAccount;
         this.destinationAccount = destinationAccount;
-        this.date = date;
         this.amount = amount;
+        this.date = date;
+        this.reportId = reportId;
     }
-
-    public String getTransactionId() { return transactionId; }
-    public void setTransactionId(String transactionId) { this.transactionId = transactionId; }
 
     public String getSourceAccount() { return sourceAccount; }
     public void setSourceAccount(String sourceAccount) { this.sourceAccount = sourceAccount; }
@@ -27,15 +25,21 @@ public class Transaction {
     public String getDestinationAccount() { return destinationAccount; }
     public void setDestinationAccount(String destinationAccount) { this.destinationAccount = destinationAccount; }
 
-    public String getDate() { return date; }
-    public void setDate(String date) { this.date = date; }
-
     public double getAmount() { return amount; }
     public void setAmount(double amount) { this.amount = amount; }
 
-    /* @Override
-    public String toString() {
-        return "[" + timestamp + "] " + " amount=" + amount + " from=" + fromAccount + " to=" + toAccount;
-    } */
-}
+    public String getDate() { return date; }
+    public void setDate(String date) { this.date = date; }
 
+    public String getReportId() { return reportId; }
+    public void setReportId(String reportId) { this.reportId = reportId; }
+
+    @Override
+    public String toString() {
+        return "Transaction | From: " + sourceAccount +
+               " To: " + destinationAccount +
+               " | Amount: " + amount +
+               " | Date: " + date +
+               " | ReportID: " + reportId;
+    }
+}
