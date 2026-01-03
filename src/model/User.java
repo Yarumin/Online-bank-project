@@ -1,5 +1,6 @@
-//package model;
+package model;
 
+import service.ValidationService;
 public abstract class User {
     private String firstName;
     private String lastName;
