@@ -1,22 +1,37 @@
+//package service;
+
 import java.time.LocalDate;
+import java.util.Random;
 
 public class IdGeneratorService {
 
-    public static String generateEmployeeId(String nationalId) {
-        String last5 = nationalId != null && nationalId.length() >= 5 ? nationalId.substring(nationalId.length()-5) : nationalId;
-        LocalDate date = LocalDate.now();
-        int year = date.getYear();
-        int lastTwoDigits = year % 100;
-        return "415" + (last5 == null ? "" : last5) + lastTwoDigits;
+    public static String generateEmployeeId(String nationalId){
+        LocalDate now = LocalDate.now();
+        String year = String.valueOf(now.getYear()).substring(2);
+        String lastFive = nationalId.substring(5);
+        return year + lastFive + "415";
     }
 
-    public static String generateAccountNumber(String nationalId) {
-        LocalDate d = LocalDate.now();
-        String dd = String.format("%02d", d.getDayOfMonth());
-        String mm = String.format("%02d", d.getMonthValue());
-        String yy = String.valueOf(d.getYear()).substring(2);
-        String last6 = nationalId != null && nationalId.length() >= 6 ? nationalId.substring(nationalId.length()-6) : nationalId;
-        return "4895" + (last6 == null ? "" : last6) + dd + mm + yy;
+
+    public static String generateAccountNumber(String nationalId){
+        LocalDate now = LocalDate.now();
+
+        String day = String.valueOf(now.getDayOfMonth());
+        if (day.length() == 1) day = "0" + day;
+
+        String month = String.valueOf(now.getMonthValue());
+        if (month.length() == 1) month = "0" + month;
+
+        String year = String.valueOf(now.getYear()).substring(2);
+
+        String lastSix = nationalId.substring(4);
+
+        return day + month + year + lastSix;
+    }
+
+
+    public static String generateReportId(){
+        Random r = new Random();
+        return "R" + (100000 + r.nextInt(900000));
     }
 }
-
